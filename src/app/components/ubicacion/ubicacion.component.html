@@ -1,0 +1,12 @@
+<h2> {{ nombre }} </h2>
+<ol  class="list-group list-group-flush">
+    <li  class="list-group-item disabled">Zona: {{zona}}</li>
+    <li  class="list-group-item disabled">Descripcion: {{ descripcion }}</li>
+    <li  class="list-group-item disabled">Encargado: {{encargado}}</li>
+    <li class="list-group-item disabled">
+        <span *ngIf="abierto == true">Abierto</span>
+        <span *ngIf="abierto == !true">Cerrado</span>
+    </li>
+</ol>
+
+<button type="button" class="btn btn-success" (click)="emitirEvento()">Mostrar Datos del padre</button>
