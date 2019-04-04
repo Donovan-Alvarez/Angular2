@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 
 @Component({
     selector : 'tienda',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls:['./tienda.component.css']
 })
 
-export class TiendaComponent {
+export class TiendaComponent implements DoCheck {
     public titulo;
     public nombreDeUbicacion: string;   
     public miUbicacion;
@@ -21,6 +21,9 @@ export class TiendaComponent {
     verDatosUbicacion(event){
         console.log(event);
         this.miUbicacion = event;
+    }
+    ngDoCheck(){
+        console.log('Cambios en las propiedades');
     }
     
 }

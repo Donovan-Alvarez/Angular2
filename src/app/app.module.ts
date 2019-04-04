@@ -10,6 +10,9 @@ import { TiendaComponent } from './components/tienda/tienda.component';
 import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ProductosComponent } from './components/productos/productos.component';
     TiendaComponent,
     UbicacionComponent,
     InicioComponent,
-    ProductosComponent
+    ProductosComponent,
+    ContactoComponent,
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
