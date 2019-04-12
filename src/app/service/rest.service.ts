@@ -8,12 +8,13 @@ import {map} from 'rxjs/operators'
   providedIn: 'root'
 })
 export class RestService {
-  endpoint = 'http://localhost/3789/v2';
+  endpoint = 'http://localhost:3789/v2/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json'
     })
   };
+  mensaje = 'Ejecutar el guardar teacher';
 
 
   constructor(private http: HttpClient) {  }
@@ -22,8 +23,18 @@ export class RestService {
       return body || [ ] || { };
     }
     getTeachers(): Observable <any> {
-      return this.http.get(this.endpoint + '/teacher').pipe(
+      return this.http.get(this.endpoint + 'list').pipe(
         map(this.extractData));
     }
+
+    setTeacher(teacher_guardar){
+      console.log(this.mensaje);
+      var params = JSON.stringify(teacher_guardar);
+      return this.http.post(this.endpoint + 'guardar-profesor', params, this.httpOptions).pipe(
+        map(res =>{}));
+    }
  
+
+
 }
+

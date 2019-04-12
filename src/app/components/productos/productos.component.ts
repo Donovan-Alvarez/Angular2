@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/service/rest.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
  titulo = 'Clase de productos'
+ teachers = [];
 
-  constructor() { }
+  constructor(public rest: RestService) { }
 
   ngOnInit() {
+    this.getTeacher();
     console.log('Productos lanzados');
+  }
+  getTeacher(){
+    this.rest.getTeachers().subscribe(res =>{
+      console.log(res);
+      this.teachers = res.teacher;
+    });
   }
 
 }

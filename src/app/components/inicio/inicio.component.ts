@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherModel } from 'src/app/models/teacher';
+import { RestService } from '../../service/rest.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
   datos;
+  teacher;
 
-  constructor() { }
+  constructor( public rest: RestService) {
+    this.rest.setTeacher(this.teacher); 
+    this.teacher = new TeacherModel('','','','');
+   }
 
   ngOnInit() {
     this.getData();
+  }
+  
+  onSubmit(){
+    console.log(this.teacher);
   }
 
   getData(){
